@@ -1,1 +1,316 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NEWJEANS</title>
+
+<style>
+
+  html,body{
+    height:100%;
+    margin:0;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    background:#fff;
+  }
+
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 28px;
+  }
+
+  .logo{
+    font-size:larger;
+    font-weight:700;
+    letter-spacing:1px;
+    cursor:pointer;
+  }
+
+  .menu{
+    width:22px;
+    height:18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+  }
+
+  .menu span{
+    display:block;
+    height:2px;
+    background:#111;
+    border-radius:2px;
+  }
+
+  #galleryPage{
+    display:block;
+  }
+
+  .gallery{
+    display:grid;
+    margin-left:70px;
+    margin-right:70px;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:210px;
+    gap:22px;
+    margin-top:30px;
+    margin-bottom:40px;
+  }
+
+  .gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:4px;
+  }
+
+  .g1{ grid-column:1/3; }
+  .g2{ grid-column:3/5; }
+  .g3{ grid-column:1/2; }
+  .g4{ grid-column:2/4; }
+  .g5{ grid-column:4/5; }
+
+  .footer{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 28px;
+    font-size:13px;
+  }
+
+  .social{
+    display:flex;
+    gap:12px;
+  }
+
+  .social .dot{
+    width:18px;
+    height:18px;
+    background:#111;
+    border-radius:50%;
+  }
+
+  .copyright{
+    font-size:12px;
+  }
+
+  .full-menu{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background:#ffffff;
+    z-index:999;
+    padding:40px 50px;
+    box-sizing:border-box;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .menu-top{
+    position:absolute;
+    top:30px;
+    left:40px;
+    font-weight:bold;
+    font-size:20px;
+    letter-spacing:2px;
+  }
+
+  .close-btn{
+    position:absolute;
+    top:25px;
+    right:40px;
+    font-size:32px;
+    cursor:pointer;
+  }
+
+  .menu-links{
+    list-style:none;
+    text-align:center;
+    padding:0;
+  }
+
+  .menu-links li{
+    margin:18px 0;
+    font-size:29px;
+    letter-spacing:2px;
+    cursor:pointer;
+  }
+
+  #profilePage{
+    display:none;
+    padding:40px 0;
+    width:100%;
+  }
+
+  .profile-wrapper{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+  }
+
+  .profile-names-left{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    font-size:16px;
+    letter-spacing:2px;
+    text-align:right;
+  }
+
+  .profile-names-left div{
+    cursor:pointer;
+  }
+
+  .profile-center{
+    position:relative;
+  }
+
+  .profile-graybox{
+    width:330px;
+    height:440px;
+    background:#ddd;
+    position:absolute;
+    top:25px;
+    left:25px;
+    z-index:1;
+  }
+
+  .profile-photo{
+    width:330px;
+    height:440px;
+    object-fit:cover;
+    position:relative;
+    z-index:2;
+    border-radius:3px;
+  }
+
+  .profile-right{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-left:20px;
+  }
+
+  .member-name{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:3px;
+  }
+
+  .detail{
+    font-size:14px;
+    line-height:22px;
+    letter-spacing:1px;
+  }
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="logo" onclick="showGallery()">NJZ</div>
+
+  <div class="menu" id="openMenu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<div id="galleryPage">
+  <div class="gallery">
+    <div class="g1"><img src="images/897f679ccfcc95331fe467d3c5d57111.jpg"></div>
+    <div class="g2"><img src="images/2cae587adf1bf50c173a4294adcfa345.jpg"></div>
+    <div class="g3"><img src="images/08b7643bbf4754b31a13aeba312d827f.jpg"></div>
+    <div class="g4"><img src="images/96c54fa008ce305d4073359178d53bec.jpg"></div>
+    <div class="g5"><img src="images/93df3cab4b6d8c274208e8069c93a506.jpg"></div>
+  </div>
+
+  <div class="footer">
+    <div class="social">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="copyright">NJZ. All Rights Reserved</div>
+  </div>
+</div>
+
+<div id="profilePage">
+  <div class="profile-wrapper">
+
+    <div class="profile-names-left">
+      <div>HANNI</div>
+      <div>HAERIN</div>
+      <div>MINJI</div>
+      <div>DANIELLE</div>
+      <div>HYEIN</div>
+    </div>
+
+    <div class="profile-center">
+      <div class="profile-graybox"></div>
+      <img class="profile-photo" src="images\deda12d5451842042aad9ae2709d94e3.jpg">
+    </div>
+
+    <div class="profile-right">
+      <div class="member-name">HANNI</div>
+
+      <div class="detail">
+        <b>KOREAN NAME:</b> 하니 <br>
+        <b>BIRTHDAY:</b> 2004.10.06
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="full-menu" id="fullMenu">
+
+  <div class="menu-top">NJZ</div>
+
+  <div class="close-btn" id="closeMenu">×</div>
+
+  <ul class="menu-links">
+    <li onclick="openProfile()">Profile</li>
+    <li onclick="closeMenu()">Discography</li>
+    <li onclick="closeMenu()">Gallery</li>
+    <li onclick="closeMenu()">Video</li>
+    <li onclick="closeMenu()">Schedule</li>
+  </ul>
+
+</div>
+
+<script>
+
+const openBtn = document.getElementById("openMenu");
+const closeBtn = document.getElementById("closeMenu");
+const fullMenu = document.getElementById("fullMenu");
+
+openBtn.onclick = () => fullMenu.style.display = "flex";
+closeBtn.onclick = () => fullMenu.style.display = "none";
+
+function openProfile(){
+    fullMenu.style.display = "none";
+    document.getElementById("galleryPage").style.display = "none";
+    document.getElementById("profilePage").style.display = "block";
+}
+
+function showGallery(){
+    document.getElementById("profilePage").style.display = "none";
+    document.getElementById("galleryPage").style.display = "block";
+}
+
+</script>
+
+</body>
+</html>
